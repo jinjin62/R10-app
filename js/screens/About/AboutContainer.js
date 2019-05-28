@@ -5,13 +5,22 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 class AboutContainer extends Component {
+  static navigationOptions = {
+    title: "About"
+  };
   render() {
     return (
       <Query query={GET_CONDUCT_ITEMS}>
         {({ loading, data }) => {
           if (loading || !data) return <Text>"Loading..."</Text>;
           console.log(data);
-          return <About conductData={data} />;
+          return (
+            <About
+              conductData={data.allConducts.map(
+                conductsDesc => conductsDesc.description
+              )}
+            />
+          );
         }}
       </Query>
     );
