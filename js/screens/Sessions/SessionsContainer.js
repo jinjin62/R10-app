@@ -1,14 +1,40 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
 import Sessions from "./Sessions";
-
+import { Query } from "react-apollo";
+import Loader from "../../components/Loader";
+import gql from "graphql-tag";
 export default class SessionsContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  static navigationOptions = {
+    title: "Sessions"
+  };
 
   render() {
-    return <Sessions />;
+    const id = this.props.navigation.getParam("id");
+    return (
+      <Query variables={{ id: id }} query={GET_SPEAKERS_ID}>
+        {({ loading, data }) => {
+          if (loading || !data) return <Loader loading={loading} />;
+          return (
+            <Sessions
+              navigation={this.props.navigation}
+              speaker={data.allSpeakers[0]}
+              item={this.props.navigation.getParam("item")}
+            />
+          );
+        }}
+      </Query>
+    );
   }
 }
+
+const GET_SPEAKERS_ID = gql`
+  query allSpeakers($id: ID) {
+    allSpeakers(filter: { id: $id }) {
+      id
+      bio
+      name
+      image
+      url
+    }
+  }
+`;
