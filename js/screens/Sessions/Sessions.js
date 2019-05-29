@@ -34,10 +34,9 @@ const Session = props => {
       <Text style={styles.description}>{description}</Text>
 
       <Text style={styles.location}>Presented by:</Text>
-
       <TouchableHighlight
         underlayColor={"transparent"}
-        onPress={() => navigation.navigate("Speaker", { speaker })}
+        // onPress={() => navigation.navigate("Speaker", { speaker })}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Image
