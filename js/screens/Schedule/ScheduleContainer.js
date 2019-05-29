@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import { formatSessionData } from "../../helpers/index";
 import { Text, View, Viewscroll, SectionList } from "react-native";
+import Loader from "../../components/Loader";
 
 class ScheduleContainer extends Component {
   static navigationOptions = {
@@ -13,7 +14,7 @@ class ScheduleContainer extends Component {
     return (
       <Query query={GET_SCHEDULE_ITEMS}>
         {({ loading, data }) => {
-          if (loading || !data) return <Text>"Loading..."</Text>;
+          if (loading || !data) return <Loader loading={loading} />;
           // console.log(data);
           return (
             <Schedule
