@@ -7,31 +7,36 @@ import {
   TouchableHighlight
 } from "react-native";
 import moment from "moment";
+import styles from "./styles";
 
 const Schedule = ({ scheduleData, navigation }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <SectionList
         renderItem={({ item, index, section }) => (
-          <TouchableHighlight
-            underlayColor={"transparent"}
-            onPress={() =>
-              navigation.navigate("Sessions", {
-                item: item,
-                id: item.speaker.id
-              })
-            }
-          >
-            <View>
-              <Text key={index}>{item.title}</Text>
-              <Text key={item}>{item.location}</Text>
-            </View>
-          </TouchableHighlight>
+          <View style={styles.divider}>
+            <TouchableHighlight
+              underlayColor={"#e6e6e6"}
+              onPress={() =>
+                navigation.navigate("Sessions", {
+                  item: item,
+                  id: item.speaker.id
+                })
+              }
+            >
+              <View style={styles.eventList}>
+                <Text key={index} style={styles.eventTitle}>
+                  {item.title}
+                </Text>
+                <Text key={item} style={styles.location}>
+                  {item.location}
+                </Text>
+              </View>
+            </TouchableHighlight>
+          </View>
         )}
         renderSectionHeader={({ section: { title } }) => (
-          <Text style={{ fontWeight: "bold" }}>
-            {moment(title).format("LT")}
-          </Text>
+          <Text style={styles.time}>{moment(title).format("LT")}</Text>
         )}
         sections={scheduleData}
         keyExtractor={(item, index) => item + index}
