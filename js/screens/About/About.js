@@ -7,7 +7,7 @@ const About = ({ conductData }) => {
   return (
     <View style={styles.container}>
       {/* <Text>{conductData.title}</Text> */}
-      <Text style={styles.welcome}>{conductData}</Text>
+      <Text>{conductData}</Text>
     </View>
   );
 };

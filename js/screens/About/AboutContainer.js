@@ -13,7 +13,7 @@ class AboutContainer extends Component {
       <Query query={GET_CONDUCT_ITEMS}>
         {({ loading, data }) => {
           if (loading || !data) return <Text>"Loading..."</Text>;
-          console.log(data);
+          // console.log(data);
           return (
             <About
               conductData={data.allConducts.map(
