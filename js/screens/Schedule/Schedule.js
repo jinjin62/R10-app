@@ -9,12 +9,19 @@ import {
 import moment from "moment";
 
 const Schedule = ({ scheduleData, navigation }) => {
-  console.log(scheduleData);
   return (
     <View>
       <SectionList
         renderItem={({ item, index, section }) => (
-          <TouchableHighlight onPress={() => navigation.navigate("Sessions")}>
+          <TouchableHighlight
+            underlayColor={"transparent"}
+            onPress={() =>
+              navigation.navigate("Sessions", {
+                item: item,
+                id: item.speaker.id
+              })
+            }
+          >
             <View>
               <Text key={index}>{item.title}</Text>
               <Text key={item}>{item.location}</Text>
