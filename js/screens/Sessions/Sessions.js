@@ -9,12 +9,11 @@ import {
 } from "react-native";
 import styles from "./styles";
 import moment from "moment";
+// import FavesContext  from "./context/FavesContext";
 
 // create a component
 const Session = props => {
-  console.log(props);
   const { id, title, location, startTime, description, speaker } = props.item;
-  const { image } = props.speaker;
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -36,12 +35,12 @@ const Session = props => {
       <Text style={styles.location}>Presented by:</Text>
       <TouchableHighlight
         underlayColor={"transparent"}
-        // onPress={() => navigation.navigate("Speaker", { speaker })}
+        onPress={() => props.navigation.navigate("Speaker", { speaker })}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Image
             style={{ width: 60, height: 60, borderRadius: 30 }}
-            source={{ uri: image }}
+            source={{ uri: speaker.image }}
           />
           <Text style={styles.speaker}>{speaker.name}</Text>
         </View>
