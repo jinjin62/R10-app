@@ -16,7 +16,7 @@ import moment from "moment";
 // create a component
 const Session = props => {
   const { id, title, location, startTime, description, speaker } = props.item;
-
+  console.log("SESSIONS BIO: ");
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View
@@ -37,7 +37,9 @@ const Session = props => {
       <Text style={styles.location}>Presented by:</Text>
       <TouchableHighlight
         underlayColor={"transparent"}
-        onPress={() => props.navigation.navigate("Speaker", { speaker })}
+        onPress={() =>
+          props.navigation.navigate("Speaker", { speaker: props.speaker })
+        }
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Image

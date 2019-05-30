@@ -14,6 +14,7 @@ export default class SessionsContainer extends Component {
     return (
       <Query variables={{ id }} query={GET_SPEAKERS_ID}>
         {({ loading, data }) => {
+          console.log("QUERY DATA: ", data);
           if (loading || !data) return <Loader loading={loading} />;
           return (
             <Sessions
