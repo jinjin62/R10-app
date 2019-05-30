@@ -4,7 +4,7 @@ import { View, ActivityIndicator } from "react-native";
 
 const Loader = ({ loading }) => {
   return (
-    <View styles={styles.container}>
+    <View style={styles.container}>
       {loading ? (
         <ActivityIndicator animating={true} size="large" color="black" />
       ) : null}
