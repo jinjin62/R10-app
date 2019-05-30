@@ -3,6 +3,7 @@ import Sessions from "./Sessions";
 import { Query } from "react-apollo";
 import Loader from "../../components/Loader";
 import gql from "graphql-tag";
+// import FavesContext  from "./context/FavesContext";
 export default class SessionsContainer extends Component {
   static navigationOptions = {
     title: "Sessions"
@@ -11,7 +12,7 @@ export default class SessionsContainer extends Component {
   render() {
     const id = this.props.navigation.getParam("id");
     return (
-      <Query variables={{ id: id }} query={GET_SPEAKERS_ID}>
+      <Query variables={{ id }} query={GET_SPEAKERS_ID}>
         {({ loading, data }) => {
           if (loading || !data) return <Loader loading={loading} />;
           return (

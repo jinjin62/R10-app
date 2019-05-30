@@ -5,6 +5,7 @@ import { Query } from "react-apollo";
 import { formatSessionData } from "../../helpers/index";
 import { Text, View, Viewscroll, SectionList } from "react-native";
 import Loader from "../../components/Loader";
+import FavesContext from "../../context/FavesContext";
 
 class ScheduleContainer extends Component {
   static navigationOptions = {
@@ -13,14 +14,21 @@ class ScheduleContainer extends Component {
   render() {
     return (
       <Query query={GET_SCHEDULE_ITEMS}>
-        {({ loading, data }) => {
-          if (loading || !data) return <Loader loading={loading} />;
-          // console.log(data);
+        {({ loading, error, data }) => {
+          if (loading) return <Loader loading={loading} />;
+
+          if (error) return <Text>Error</Text>;
+
           return (
-            <Schedule
-              scheduleData={formatSessionData(data.allSessions)}
-              navigation={this.props.navigation}
-            />
+            <FavesContext.Consumer>
+              {value => (
+                <Schedule
+                  scheduleData={formatSessionData(data.allSessions)}
+                  navigation={this.props.navigation}
+                  favesMethods={value}
+                />
+              )}
+            </FavesContext.Consumer>
           );
         }}
       </Query>
@@ -36,6 +44,7 @@ const GET_SCHEDULE_ITEMS = gql`
       location
       speaker {
         name
+        image
       }
       startTime
     }

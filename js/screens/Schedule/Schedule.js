@@ -9,7 +9,8 @@ import {
 import moment from "moment";
 import styles from "./styles";
 
-const Schedule = ({ scheduleData, navigation }) => {
+const Schedule = ({ scheduleData, navigation, favesMethods }) => {
+  console.log("THE FAVES:", favesMethods);
   return (
     <View style={styles.container}>
       <SectionList
