@@ -4,13 +4,18 @@ import {
   View,
   Viewscroll,
   SectionList,
-  TouchableHighlight
+  TouchableHighlight,
+  Platform
 } from "react-native";
 import moment from "moment";
 import styles from "./styles";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-const Schedule = ({ scheduleData, navigation, favesMethods }) => {
-  console.log("THE FAVES:", favesMethods);
+const Schedule = ({ scheduleData, navigation, faveIds }) => {
+  const heart = Platform.select({
+    ios: "ios-heart",
+    android: "md-heart"
+  });
   return (
     <View style={styles.container}>
       <SectionList
@@ -18,20 +23,24 @@ const Schedule = ({ scheduleData, navigation, favesMethods }) => {
           <View style={styles.divider}>
             <TouchableHighlight
               underlayColor={"#e6e6e6"}
-              onPress={() =>
-                navigation.navigate("Sessions", {
-                  item: item,
-                  id: item.speaker.id
-                })
-              }
+              onPress={() => {
+                if (!item.speaker) {
+                  navigation.navigate("", {});
+                } else {
+                  navigation.navigate("Sessions", {
+                    id: item.id
+                  });
+                }
+              }}
             >
-              <View style={styles.eventList}>
+              <View key={item.id} style={styles.eventList}>
                 <Text key={index} style={styles.eventTitle}>
                   {item.title}
                 </Text>
-                <Text key={item} style={styles.location}>
-                  {item.location}
-                </Text>
+                <Text style={styles.location}>{item.location}</Text>
+                {faveIds.includes(item.id) ? (
+                  <Ionicons name={heart} size={20} color="red" />
+                ) : null}
               </View>
             </TouchableHighlight>
           </View>

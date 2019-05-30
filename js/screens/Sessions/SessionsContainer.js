@@ -3,7 +3,8 @@ import Sessions from "./Sessions";
 import { Query } from "react-apollo";
 import Loader from "../../components/Loader";
 import gql from "graphql-tag";
-// import FavesContext  from "./context/FavesContext";
+import FavesContext from "../../context/FavesContext";
+
 export default class SessionsContainer extends Component {
   static navigationOptions = {
     title: "Sessions"
@@ -14,14 +15,20 @@ export default class SessionsContainer extends Component {
     return (
       <Query variables={{ id }} query={GET_SPEAKERS_ID}>
         {({ loading, data }) => {
-          console.log("QUERY DATA: ", data);
           if (loading || !data) return <Loader loading={loading} />;
+          console.log(data);
           return (
-            <Sessions
-              navigation={this.props.navigation}
-              speaker={data.allSpeakers[0]}
-              item={this.props.navigation.getParam("item")}
-            />
+            <FavesContext.Consumer>
+              {({ faveIds, addFaveSession, removeFaveSession }) => (
+                <Sessions
+                  navigation={this.props.navigation}
+                  session={data.Session}
+                  faveIds={faveIds}
+                  addFaveSession={addFaveSession}
+                  removeFaveSession={removeFaveSession}
+                />
+              )}
+            </FavesContext.Consumer>
           );
         }}
       </Query>
@@ -30,13 +37,20 @@ export default class SessionsContainer extends Component {
 }
 
 const GET_SPEAKERS_ID = gql`
-  query allSpeakers($id: ID) {
-    allSpeakers(filter: { id: $id }) {
+  query session($id: ID!) {
+    Session(id: $id) {
       id
-      bio
-      name
-      image
-      url
+      location
+      startTime
+      title
+      description
+      speaker {
+        id
+        bio
+        name
+        image
+        url
+      }
     }
   }
 `;

@@ -21,11 +21,11 @@ class ScheduleContainer extends Component {
 
           return (
             <FavesContext.Consumer>
-              {value => (
+              {({ faveIds }) => (
                 <Schedule
                   scheduleData={formatSessionData(data.allSessions)}
                   navigation={this.props.navigation}
-                  favesMethods={value}
+                  faveIds={faveIds}
                 />
               )}
             </FavesContext.Consumer>
@@ -39,10 +39,12 @@ class ScheduleContainer extends Component {
 const GET_SCHEDULE_ITEMS = gql`
   query {
     allSessions {
+      id
       title
       description
       location
       speaker {
+        id
         name
         image
       }

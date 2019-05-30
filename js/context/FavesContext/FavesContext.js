@@ -19,27 +19,24 @@ class FavesProvider extends Component {
     try {
       const faves = await queryFaves();
       const faveIds = faves.map(fave => fave[0]);
-      console.log(faves);
       this.setState({ faveIds });
     } catch (e) {
       throw Error(e);
     }
   };
 
-  addFaveSession = async sessionId => {
+  addFaveSession = async id => {
     try {
-      const newFave = await createFave(sessionId);
-      if (newFave) {
-        this.setState({ faveIds: [...this.state.faveIds, newFave.id] });
-      }
+      await createFave(id);
+      this.getFavedSessionIds();
     } catch (error) {
       return false;
     }
   };
 
-  removeFaveSession = async sessionId => {
+  removeFaveSession = async id => {
     try {
-      await removeFave(sessionId);
+      await removeFave(id);
       this.getFavedSessionIds();
     } catch (error) {
       return false;

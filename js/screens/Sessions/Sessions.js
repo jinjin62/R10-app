@@ -11,66 +11,89 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import styles from "./styles";
 import moment from "moment";
+import Ionicons from "react-native-vector-icons/Ionicons";
 // import FavesContext  from "./context/FavesContext";
 
 // create a component
-const Session = props => {
-  const { id, title, location, startTime, description, speaker } = props.item;
-  console.log("SESSIONS BIO: ");
+const Session = ({
+  navigation,
+  session,
+  faveIds,
+  addFaveSession,
+  removeFaveSession
+}) => {
+  const { id, title, location, startTime, description, speaker } = session;
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "100%"
-        }}
-      >
-        <Text style={styles.location}>{location}</Text>
-      </View>
-
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.time}>{moment(startTime).format("LT")} </Text>
-      <Text style={styles.description}>{description}</Text>
-
-      <Text style={styles.location}>Presented by:</Text>
-      <TouchableHighlight
-        underlayColor={"transparent"}
-        onPress={() =>
-          props.navigation.navigate("Speaker", { speaker: props.speaker })
-        }
-      >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Image
-            style={{ width: 60, height: 60, borderRadius: 30 }}
-            source={{ uri: speaker.image }}
-          />
-          <Text style={styles.speaker}>{speaker.name}</Text>
-        </View>
-      </TouchableHighlight>
-
-      <View style={styles.divider} />
-      {/* onPress */}
-      <TouchableOpacity>
+    session && (
+      <ScrollView contentContainerStyle={styles.container}>
         <View
           style={{
-            justifyContent: "center",
+            flexDirection: "row",
+            justifyContent: "space-between",
             alignItems: "center",
-            marginBottom: 60
+            width: "100%"
           }}
         >
-          <LinearGradient
-            colors={["#9963ea", "#8797D6"]}
-            start={{ x: 0.0, y: 0.5 }}
-            end={{ x: 0.5, y: 0.0 }}
-            style={[StyleSheet.absoluteFill, styles.btn]}
-          >
-            <Text style={styles.btnText}>Add to Faves</Text>
-          </LinearGradient>
+          <Text style={styles.location}>{location}</Text>
+          {faveIds.includes(id) ? (
+            <Ionicons
+              name="ios-heart"
+              size={25}
+              color="red"
+              style={styles.fave}
+            />
+          ) : null}
         </View>
-      </TouchableOpacity>
-    </ScrollView>
+
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.time}>{moment(startTime).format("LT")} </Text>
+        <Text style={styles.description}>{description}</Text>
+
+        <Text style={styles.location}>Presented by:</Text>
+        <TouchableHighlight
+          underlayColor={"transparent"}
+          onPress={() =>
+            navigation.navigate("Speaker", {
+              speaker: speaker
+            })
+          }
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Image
+              style={{ width: 60, height: 60, borderRadius: 30 }}
+              source={{ uri: speaker.image }}
+            />
+            <Text style={styles.speaker}>{speaker.name}</Text>
+          </View>
+        </TouchableHighlight>
+
+        <View style={styles.divider} />
+        <TouchableOpacity
+          onPress={() => {
+            faveIds.includes(id) ? removeFaveSession(id) : addFaveSession(id);
+          }}
+        >
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: 60
+            }}
+          >
+            <LinearGradient
+              colors={["#9963ea", "#8797D6"]}
+              start={{ x: 0.0, y: 0.5 }}
+              end={{ x: 0.5, y: 0.0 }}
+              style={[StyleSheet.absoluteFill, styles.btn]}
+            >
+              <Text style={styles.btnText}>
+                {faveIds.includes(id) ? "Remove from Faves" : "Add to Faves"}
+              </Text>
+            </LinearGradient>
+          </View>
+        </TouchableOpacity>
+      </ScrollView>
+    )
   );
 };
 
