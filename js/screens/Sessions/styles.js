@@ -45,12 +45,17 @@ const styles = StyleSheet.create({
     marginTop: 16
   },
   btn: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: 45,
+    borderRadius: 25,
+    margin: 20
+  },
+  btnText: {
     color: "white",
     alignSelf: "center",
     justifyContent: "center",
-    fontSize: 20,
-    margin: 30,
-    marginTop: 15
+    fontSize: 15
   }
 });
 

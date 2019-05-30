@@ -5,8 +5,10 @@ import {
   Image,
   ScrollView,
   TouchableHighlight,
-  Button
+  TouchableOpacity,
+  StyleSheet
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 import styles from "./styles";
 import moment from "moment";
 // import FavesContext  from "./context/FavesContext";
@@ -47,8 +49,25 @@ const Session = props => {
       </TouchableHighlight>
 
       <View style={styles.divider} />
-
-      <Button title={"Add to Faves"} />
+      {/* onPress */}
+      <TouchableOpacity>
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: 60
+          }}
+        >
+          <LinearGradient
+            colors={["#9963ea", "#8797D6"]}
+            start={{ x: 0.0, y: 0.5 }}
+            end={{ x: 0.5, y: 0.0 }}
+            style={[StyleSheet.absoluteFill, styles.btn]}
+          >
+            <Text style={styles.btnText}>Add to Faves</Text>
+          </LinearGradient>
+        </View>
+      </TouchableOpacity>
     </ScrollView>
   );
 };
