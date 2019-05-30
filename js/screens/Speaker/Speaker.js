@@ -14,7 +14,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 
 const Speaker = props => {
-  console.log("SPEAKER:", props);
+  console.log("SPEAKER PROPS:", props);
   return (
     <View style={styles.container}>
       <TouchableHighlight
@@ -46,7 +46,7 @@ const Speaker = props => {
         <Text style={styles.bio}>{props.speaker.bio}</Text>
 
         <TouchableOpacity
-          handlePress={() => {
+          onPress={() => {
             Linking.openURL(`${props.speaker.url}`);
           }}
         >
