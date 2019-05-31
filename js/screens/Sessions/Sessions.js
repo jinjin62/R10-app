@@ -81,7 +81,7 @@ const Session = ({
             }}
           >
             <LinearGradient
-              colors={["#9963ea", "#8797D6"]}
+              colors={["#9963ea", "#cf392a"]}
               start={{ x: 0.0, y: 0.5 }}
               end={{ x: 0.5, y: 0.0 }}
               style={[StyleSheet.absoluteFill, styles.btn]}
