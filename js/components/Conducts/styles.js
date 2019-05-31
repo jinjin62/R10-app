@@ -28,13 +28,6 @@ const styles = StyleSheet.create({
   each: { margin: 10 },
   conductContent: {
     marginTop: 5
-  },
-  divider: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    borderBottomColor: "#bbb",
-    borderBottomWidth: 2,
-    width: "90%"
   }
 });
 export default styles;
