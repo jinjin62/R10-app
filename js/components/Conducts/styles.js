@@ -1,33 +1,33 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  logoContainer: {
-    padding: 50
-  },
-  logo: {
-    marginLeft: "auto",
-    marginRight: "auto"
-  },
-  title: {
-    fontSize: 30,
-    margin: 10
-  },
-  desc: {
-    margin: 10
+  eachBlock: {
+    marginTop: 15
   },
   conductTitle: {
-    fontSize: 20,
+    fontSize: 18,
+    color: "#9963ea",
+    fontFamily: "Montserrat",
+    fontWeight: "400"
+  },
+  conductContent: {
+    marginTop: 15,
+    fontFamily: "Montserrat",
+    fontWeight: "100",
+    lineHeight: 20
+  },
+  titleContainer: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
     color: "#9963ea"
   },
-  each: { margin: 10 },
-  conductContent: {
-    marginTop: 5
+  plusSign: {
+    marginRight: 5,
+    fontSize: 20,
+    width: 10,
+    color: "#9963ea",
+    fontFamily: "Montserrat"
   }
 });
 export default styles;

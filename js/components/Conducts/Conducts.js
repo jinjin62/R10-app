@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
   LayoutAnimation,
   Platform,
-  Animated
+  UIManager,
+  Animated,
+  TouchableOpacity
 } from "react-native";
 import styles from "./styles";
-
-export default class Conducts extends Component {
+class ConductItem extends Component {
   constructor(props) {
     super(props);
     if (Platform.OS === "android") {
@@ -17,31 +17,75 @@ export default class Conducts extends Component {
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
     this.state = {
-      isOpen: false
+      isOpen: false,
+      isPlusSign: true,
+      rotate: new Animated.Value(0)
     };
   }
-
   toggle() {
-    const currentIsOpen = this.state.isOpen;
-    LayoutAnimation.easeInEaseOut();
-    this.setState({
-      isOpen: !currentIsOpen
+    const animation = Animated.timing(this.state.rotate, {
+      toValue: 1,
+      duration: 500
     });
+    animation.start(animation => {
+      if (animation.finished) {
+        this.setState({
+          rotate: new Animated.Value(0),
+          isPlusSign: !this.state.isPlusSign
+        });
+      }
+    });
+    const createAnimation = {
+      duration: 1000,
+      create: {
+        type: "spring",
+        property: "scaleY",
+        springDamping: 2
+      },
+      update: {
+        type: "easeInEaseOut"
+      }
+    };
+    const removeAnimation = {
+      duration: 300,
+      delete: {
+        type: "linear",
+        property: "scaleXY"
+      },
+      update: {
+        type: "easeInEaseOut"
+      }
+    };
+    if (this.state.isOpen) {
+      LayoutAnimation.configureNext(removeAnimation);
+    } else {
+      LayoutAnimation.configureNext(createAnimation);
+    }
+    // LayoutAnimation.easeInEaseOut();
+    this.setState({ isOpen: !this.state.isOpen });
   }
-
   render() {
-    const { isOpen } = this.state;
     const { item } = this.props;
-    console.log("item props:", item);
+    const { isOpen, rotate, isPlusSign } = this.state;
+    const spin = rotate.interpolate({
+      inputRange: [0, 1],
+      outputRange: ["0deg", "360deg"]
+    });
+    let animatedStyles = {
+      transform: [{ rotate: spin }]
+    };
 
     return (
-      <View style={styles.each}>
-        <TouchableOpacity onPress={() => this.toggle()}>
-          <Text style={styles.conductTitle}>
-            {isOpen ? "-" : "+"} {item.title}
-          </Text>
+      <View style={styles.eachBlock}>
+        <TouchableOpacity
+          style={styles.titleContainer}
+          onPress={() => this.toggle()}
+        >
+          <Animated.Text style={[styles.plusSign, animatedStyles]}>
+            {isPlusSign ? "+" : "-"}
+          </Animated.Text>
+          <Text style={[styles.conductTitle]}>{item.title}</Text>
         </TouchableOpacity>
-
         {isOpen ? (
           <Text style={styles.conductContent}>{item.description}</Text>
         ) : null}
@@ -49,3 +93,5 @@ export default class Conducts extends Component {
     );
   }
 }
+
+export default ConductItem;
