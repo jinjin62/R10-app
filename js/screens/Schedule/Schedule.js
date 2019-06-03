@@ -38,16 +38,17 @@ const Schedule = ({ scheduleData, navigation, faveIds }) => {
                 <Text key={index} style={styles.eventTitle}>
                   {item.title}
                 </Text>
-                <Text style={styles.location}>{item.location}</Text>
-
-                {faveIds.includes(item.id) ? (
-                  <Ionicons
-                    name={heart}
-                    style={styles.fave}
-                    size={15}
-                    color="red"
-                  />
-                ) : null}
+                <View style={styles.locationContainer}>
+                  <Text style={styles.location}>{item.location}</Text>
+                  {faveIds.includes(item.id) ? (
+                    <Ionicons
+                      name={heart}
+                      style={styles.fave}
+                      size={15}
+                      color="red"
+                    />
+                  ) : null}
+                </View>
               </View>
             </TouchableHighlight>
           </View>
