@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "#999999"
   },
+  container: {
+    paddingBottom: 15
+  },
   event: {
     margin: 15,
     width: Dimensions.get("window").width * 0.9

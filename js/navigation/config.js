@@ -25,7 +25,10 @@ const GradientHeader = props => (
 
 export const sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
-  header: props => <GradientHeader {...props} />,
+  header: props => {
+    console.log("header", navigation);
+    return <GradientHeader {...props} />;
+  },
   headerStyle: {
     backgroundColor: "transparent"
   },
@@ -34,18 +37,33 @@ export const sharedNavigationOptions = navigation => ({
     color: "white",
     fontFamily: "Montserrat"
   },
-  headerLeft: Platform.OS === "android" && (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.toggleDrawer();
-      }}
-    >
-      <Ionicons
-        name="md-menu"
-        color="#fff"
-        size={25}
-        style={{ marginLeft: 10 }}
-      />
-    </TouchableOpacity>
-  )
+  headerLeft:
+    Platform.OS === "android" &&
+    (navigation.state.routeName === "Schedule" ? (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.toggleDrawer();
+        }}
+      >
+        <Ionicons
+          name="md-menu"
+          color="#fff"
+          size={25}
+          style={{ marginLeft: 10 }}
+        />
+      </TouchableOpacity>
+    ) : (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        <Ionicons
+          name="md-arrow-back"
+          color="#fff"
+          size={25}
+          style={{ marginLeft: 10 }}
+        />
+      </TouchableOpacity>
+    ))
 });

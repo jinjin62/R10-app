@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  createStackNavigator,
-  createDrawerNavigator
-} from "react-navigation";
+import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import AboutScreen from "../screens/About";
 import ScheduleScreen from "../screens/Schedule";
 import FavesScreen from "../screens/Faves";
 import SessionsScreen from "../screens/Sessions";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import MapScreen from "../screens/Maps";
 import { sharedNavigationOptions } from "./config";
 
 const AboutStack = createStackNavigator(
@@ -71,19 +69,19 @@ export default createDrawerNavigator(
           iconName = `md-heart`;
         } else if (routeName === "About") {
           iconName = `md-information-circle`;
-        } else if (routeName === "Map") {
+        } else if (routeName === "Maps") {
           iconName = `md-map`;
         }
 
         return <IconComponent name={iconName} size={25} color={tintColor} />;
       }
     }),
-    tabBarOptions: {
-      activeTintColor: "white",
+    contentOptions: {
+      activeTintColor: "#9963ea",
       inactiveTintColor: "#999999",
       labelStyle: {
         fontFamily: "Montserrat",
-        fontSize: 10
+        fontSize: 20
       },
       style: {
         backgroundColor: "black"

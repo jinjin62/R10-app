@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
   location: {
     fontWeight: "bold",
     fontFamily: Font.mont,
-    color: "#999999"
+    color: "#999999",
+    fontSize: 13
   },
   locationContainer: {
     flex: 1,
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
   eventTitle: {
     fontWeight: "bold",
     fontFamily: Font.mont,
+    fontSize: 15,
     marginBottom: 5
   },
   eventList: {
