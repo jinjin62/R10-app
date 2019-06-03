@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
   },
   speakerTitle: {
     color: "#fff",
-    fontSize: 15
+    fontSize: 15,
+    marginRight: 60
   },
 
   wrapper: {
@@ -62,6 +63,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     fontSize: 15
+  },
+  x: {
+    color: "#fff",
+    paddingRight: 40,
+    fontSize: 20
   }
 });
 

@@ -26,6 +26,7 @@ const Speaker = props => {
             color={"white"}
             style={{ justifyContent: "flex-start" }}
           />
+          <Text style={styles.x}>X</Text>
           <Text style={styles.speakerTitle}>About the Speaker</Text>
           <View />
         </View>
