@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Font } from "../../config/styles";
 
 const styles = StyleSheet.create({
   eachBlock: {
@@ -7,12 +8,12 @@ const styles = StyleSheet.create({
   conductTitle: {
     fontSize: 18,
     color: "#9963ea",
-    fontFamily: "Montserrat",
+    fontFamily: Font.mont,
     fontWeight: "400"
   },
   conductContent: {
     marginTop: 15,
-    fontFamily: "Montserrat",
+    fontFamily: Font.mont,
     fontWeight: "100",
     lineHeight: 20
   },
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: 10,
     color: "#9963ea",
-    fontFamily: "Montserrat"
+    fontFamily: Font.mont
   }
 });
 export default styles;

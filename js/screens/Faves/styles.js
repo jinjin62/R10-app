@@ -23,12 +23,11 @@ const styles = StyleSheet.create({
   },
   time: {
     backgroundColor: "#e6e6e6",
-    fontWeight: "bold",
-    fontFamily: Font.mont,
-
     paddingTop: 5,
     paddingBottom: 5,
-    paddingLeft: 15
+    paddingLeft: 15,
+    fontFamily: Font.mont,
+    fontWeight: "bold"
   },
   noFave: {
     alignSelf: "center",

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Font } from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -8,11 +9,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   },
   desc: {
-    margin: 10
+    margin: 10,
+    fontFamily: Font.mont
   },
   title: {
     fontSize: 30,
-    margin: 10
+    margin: 10,
+    fontFamily: Font.mont
   },
   logoContainer: {
     padding: 50
@@ -24,7 +27,8 @@ const styles = StyleSheet.create({
 
   conductTitle: {
     fontSize: 20,
-    color: "#9963ea"
+    color: "#9963ea",
+    fontFamily: Font.mont
   },
   divider: {
     marginLeft: "auto",

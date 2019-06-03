@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   speakerTitle: {
     color: "#fff",
     fontSize: 15,
+    fontWeight: Font.mont,
     marginRight: 60
   },
 
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
   name: {
     alignSelf: "center",
     fontSize: 20,
-
+    fontWeight: Font.mont,
     marginTop: 15,
     marginBottom: 20
   },
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     color: "white",
     alignSelf: "center",
     fontSize: 15,
+    fontWeight: Font.mont,
     marginTop: 25
   },
   btn: {
@@ -62,7 +64,8 @@ const styles = StyleSheet.create({
     color: "white",
     alignSelf: "center",
     justifyContent: "center",
-    fontSize: 15
+    fontSize: 15,
+    fontWeight: Font.mont
   },
   x: {
     color: "#fff",
