@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { Font } from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   speakerTitle: {
     color: "#fff",
     fontSize: 15,
-    fontWeight: Font.mont,
+    fontFamily: Font.mont,
     marginRight: 60
   },
 
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   name: {
     alignSelf: "center",
     fontSize: 20,
-    fontWeight: Font.mont,
+    fontFamily: Font.mont,
     marginTop: 15,
     marginBottom: 20
   },
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     color: "white",
     alignSelf: "center",
     fontSize: 15,
-    fontWeight: Font.mont,
+    fontFamily: Font.mont,
     marginTop: 25
   },
   btn: {
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     fontSize: 15,
-    fontWeight: Font.mont
+    fontFamily: Font.mont
   },
   x: {
     color: "#fff",

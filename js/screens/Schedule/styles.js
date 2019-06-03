@@ -12,26 +12,29 @@ const styles = StyleSheet.create({
   time: {
     backgroundColor: "#e6e6e6",
     fontWeight: "bold",
-    fontWeight: Font.mont,
+    fontFamily: Font.mont,
     paddingLeft: 20,
     paddingTop: 5,
     paddingBottom: 5
   },
   location: {
     fontWeight: "bold",
-    fontWeight: Font.mont,
+    fontFamily: Font.mont,
     color: "#999999"
+  },
+  locationContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%"
   },
   eventTitle: {
     fontWeight: "bold",
-    fontWeight: Font.mont,
+    fontFamily: Font.mont,
     marginBottom: 5
   },
   eventList: {
     margin: 20
-  },
-  fave: {
-    paddingLeft: 235
   }
 });
 
