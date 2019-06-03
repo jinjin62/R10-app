@@ -14,7 +14,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 
 const Speaker = props => {
-  console.log("SPEAKER PROPS:", props);
   return (
     <ScrollView style={styles.container}>
       <TouchableHighlight

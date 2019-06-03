@@ -16,7 +16,6 @@ export default class SessionsContainer extends Component {
       <Query variables={{ id }} query={GET_SPEAKERS_ID}>
         {({ loading, data }) => {
           if (loading || !data) return <Loader loading={loading} />;
-          console.log(data);
           return (
             <FavesContext.Consumer>
               {({ faveIds, addFaveSession, removeFaveSession }) => (

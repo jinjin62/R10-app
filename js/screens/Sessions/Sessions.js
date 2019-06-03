@@ -12,7 +12,7 @@ import LinearGradient from "react-native-linear-gradient";
 import styles from "./styles";
 import moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
-// import FavesContext  from "./context/FavesContext";
+import PropTypes from "prop-types";
 
 // create a component
 const Session = ({
@@ -95,6 +95,12 @@ const Session = ({
       </ScrollView>
     )
   );
+};
+
+Session.propTypes = {
+  session: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
+  faveIds: PropTypes.array.isRequired
 };
 
 export default Session;

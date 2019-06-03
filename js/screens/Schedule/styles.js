@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
   },
   eventList: {
     margin: 20
+  },
+  fave: {
+    paddingLeft: 235
   }
 });
 
