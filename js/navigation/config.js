@@ -3,11 +3,10 @@ import {
   StyleSheet,
   View,
   Platform,
-  Button,
   TouchableOpacity,
   StatusBar
 } from "react-native";
-import { Header, NavigationEvents } from "react-navigation";
+import { Header } from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
 import Ionicons from "react-native-vector-icons/Ionicons";
 

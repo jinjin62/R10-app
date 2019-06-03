@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator
 } from "react-navigation";
 import AboutScreen from "../screens/About";
-import MapScreen from '../screens/Maps';
+import MapScreen from "../screens/Maps";
 import ScheduleScreen from "../screens/Schedule";
 import FavesScreen from "../screens/Faves";
 import SessionsScreen from "../screens/Sessions";
@@ -53,7 +53,7 @@ const FavesStack = createStackNavigator(
     })
   }
 );
-// Dedicated stacks for Schedule and Faves will go here too!
+
 export default createBottomTabNavigator(
   {
     Schedule: ScheduleStack,
@@ -70,7 +70,6 @@ export default createBottomTabNavigator(
         let iconName;
         if (routeName === "Schedule") {
           iconName = `ios-calendar`;
-          // IconComponent = HomeIconWithBadge;
         } else if (routeName === "Faves") {
           iconName = `ios-heart`;
         } else if (routeName === "About") {

@@ -1,7 +1,6 @@
 import React from "react";
 import {
   createStackNavigator,
-  createBottomTabNavigator,
   createDrawerNavigator
 } from "react-navigation";
 import AboutScreen from "../screens/About";
@@ -53,7 +52,6 @@ const FavesStack = createStackNavigator(
     })
   }
 );
-// Dedicated stacks for Schedule and Faves will go here too!
 export default createDrawerNavigator(
   {
     Schedule: ScheduleStack,
