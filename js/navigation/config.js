@@ -4,7 +4,8 @@ import {
   View,
   Platform,
   Button,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar
 } from "react-native";
 import { Header, NavigationEvents } from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
@@ -12,6 +13,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 const GradientHeader = props => (
   <View style={{ backgroundColor: "white", overflow: "hidden" }}>
+    <StatusBar barStyle="light-content" />
     <LinearGradient
       colors={["#cf392a", "#9963ea"]}
       start={{ x: 0.0, y: 1.0 }}

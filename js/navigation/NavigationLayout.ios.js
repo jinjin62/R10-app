@@ -4,6 +4,7 @@ import {
   createBottomTabNavigator
 } from "react-navigation";
 import AboutScreen from "../screens/About";
+import MapScreen from '../screens/Maps';
 import ScheduleScreen from "../screens/Schedule";
 import FavesScreen from "../screens/Faves";
 import SessionsScreen from "../screens/Sessions";
@@ -13,6 +14,16 @@ import { sharedNavigationOptions } from "./config";
 const AboutStack = createStackNavigator(
   {
     About: AboutScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
+const MapStack = createStackNavigator(
+  {
+    Map: MapScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -46,6 +57,7 @@ const FavesStack = createStackNavigator(
 export default createBottomTabNavigator(
   {
     Schedule: ScheduleStack,
+    Map: MapStack,
     Faves: FavesStack,
     About: AboutStack
   },
@@ -63,6 +75,8 @@ export default createBottomTabNavigator(
           iconName = `ios-heart`;
         } else if (routeName === "About") {
           iconName = `ios-information-circle`;
+        } else if (routeName === "Map") {
+          iconName = `ios-map`;
         }
 
         return <IconComponent name={iconName} size={25} color={tintColor} />;

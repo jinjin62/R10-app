@@ -21,6 +21,16 @@ const AboutStack = createStackNavigator(
     })
   }
 );
+const MapStack = createStackNavigator(
+  {
+    Map: MapScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 const ScheduleStack = createStackNavigator(
   {
     Schedule: ScheduleScreen,
@@ -47,6 +57,7 @@ const FavesStack = createStackNavigator(
 export default createDrawerNavigator(
   {
     Schedule: ScheduleStack,
+    Maps: MapStack,
     Faves: FavesStack,
     About: AboutStack
   },
@@ -62,6 +73,8 @@ export default createDrawerNavigator(
           iconName = `md-heart`;
         } else if (routeName === "About") {
           iconName = `md-information-circle`;
+        } else if (routeName === "Map") {
+          iconName = `md-map`;
         }
 
         return <IconComponent name={iconName} size={25} color={tintColor} />;
