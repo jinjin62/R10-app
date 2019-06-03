@@ -1,10 +1,11 @@
-#R10
+# R10
 
 |                   Schedule                   |                   Sessions                   |
 | :------------------------------------------: | :------------------------------------------: |
 | ![Schedule screen](./assets/scheduleR10.png) | ![Sessions screen](./assets/sessionsR10.png) |
 
-##Description
+## Description
+
 R10 is a React Native app that that helps users mark events from a schedule that which they desire to take part in.
 
 ## Setup
