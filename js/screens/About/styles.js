@@ -7,6 +7,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F5FCFF"
   },
+  desc: {
+    margin: 10
+  },
+  title: {
+    fontSize: 30,
+    margin: 10
+  },
   logoContainer: {
     padding: 50
   },
@@ -14,20 +21,10 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto"
   },
-  title: {
-    fontSize: 30,
-    margin: 10
-  },
-  desc: {
-    margin: 10
-  },
+
   conductTitle: {
     fontSize: 20,
     color: "#9963ea"
-  },
-  each: { margin: 10 },
-  conductContent: {
-    marginTop: 5
   },
   divider: {
     marginLeft: "auto",
@@ -35,6 +32,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "#bbb",
     borderBottomWidth: 2,
     width: "90%"
+  },
+  each: { margin: 10 },
+  conductContent: {
+    marginTop: 5
   }
 });
 export default styles;
