@@ -65,6 +65,32 @@ export const sharedNavigationOptions = navigation => ({
           style={{ marginLeft: 10 }}
         />
       </TouchableOpacity>
+    ) : navigation.state.routeName === "Maps" ? (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.toggleDrawer();
+        }}
+      >
+        <Ionicons
+          name="md-menu"
+          color="#fff"
+          size={25}
+          style={{ marginLeft: 10 }}
+        />
+      </TouchableOpacity>
+    ) : navigation.state.routeName === "About" ? (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.toggleDrawer();
+        }}
+      >
+        <Ionicons
+          name="md-menu"
+          color="#fff"
+          size={25}
+          style={{ marginLeft: 10 }}
+        />
+      </TouchableOpacity>
     ) : (
       <TouchableOpacity
         onPress={() => {
