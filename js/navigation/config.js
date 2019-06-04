@@ -65,7 +65,7 @@ export const sharedNavigationOptions = navigation => ({
           style={{ marginLeft: 10 }}
         />
       </TouchableOpacity>
-    ) : navigation.state.routeName === "Maps" ? (
+    ) : navigation.state.routeName === "Map" ? (
       <TouchableOpacity
         onPress={() => {
           navigation.toggleDrawer();
