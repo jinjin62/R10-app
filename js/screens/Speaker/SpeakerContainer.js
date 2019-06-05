@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
 import Speaker from "./Speaker";
+import PropTypes from "prop-types";
 
 export default class SpeakerContainer extends Component {
   render() {
@@ -13,3 +13,8 @@ export default class SpeakerContainer extends Component {
     );
   }
 }
+
+Speaker.propTypes = {
+  sessions: PropTypes.array.isRequired,
+  navigation: PropTypes.object.isRequired
+};

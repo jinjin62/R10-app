@@ -40,6 +40,16 @@ const styles = StyleSheet.create({
   each: { margin: 10 },
   conductContent: {
     marginTop: 5
+  },
+  copy: {
+    color: "black",
+    fontFamily: Font.light,
+    fontSize: 20,
+    borderTopColor: "#bbb",
+    borderTopWidth: 2,
+    width: "90%",
+    marginLeft: "auto",
+    marginRight: "auto"
   }
 });
 export default styles;

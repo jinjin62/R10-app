@@ -12,6 +12,7 @@ import {
 import styles from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
+import PropTypes from "prop-types";
 
 const Speaker = props => {
   return (
@@ -70,6 +71,11 @@ const Speaker = props => {
       </ScrollView>
     </ScrollView>
   );
+};
+
+Speaker.propTypes = {
+  speaker: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired
 };
 
 export default Speaker;

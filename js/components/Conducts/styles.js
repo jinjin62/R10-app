@@ -3,7 +3,8 @@ import { Font } from "../../config/styles";
 
 const styles = StyleSheet.create({
   eachBlock: {
-    marginTop: 15
+    marginTop: 15,
+    paddingBottom: 20
   },
   conductTitle: {
     fontSize: 18,
