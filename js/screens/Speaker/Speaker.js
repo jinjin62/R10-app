@@ -54,7 +54,7 @@ const Speaker = props => {
             style={{
               justifyContent: "center",
               alignItems: "center",
-              marginBottom: 60
+              marginBottom: 90
             }}
           >
             <LinearGradient

@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 7,
     flex: 1,
-    padding: 25
+    padding: 25,
+    height: Dimensions.get("window").height * 0.9
   },
   avatar: {
     alignSelf: "center",
