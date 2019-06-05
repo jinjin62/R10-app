@@ -14,12 +14,12 @@ import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 import PropTypes from "prop-types";
 
-const Speaker = props => {
+const Speaker = ({ navigation, speaker }) => {
   return (
     <ScrollView style={styles.container}>
       <TouchableHighlight
         underlayColor={"transparent"}
-        onPress={() => props.navigation.goBack()}
+        onPress={() => navigation.goBack()}
       >
         <View style={styles.speakerHeader}>
           <Icon
@@ -41,14 +41,14 @@ const Speaker = props => {
             borderRadius: 30,
             alignSelf: "center"
           }}
-          source={{ uri: props.speaker.image }}
+          source={{ uri: speaker.image }}
         />
-        <Text style={styles.name}>{props.speaker.name}</Text>
-        <Text style={styles.bio}>{props.speaker.bio}</Text>
+        <Text style={styles.name}>{speaker.name}</Text>
+        <Text style={styles.bio}>{speaker.bio}</Text>
 
         <TouchableOpacity
           onPress={() => {
-            Linking.openURL(`${props.speaker.url}`);
+            Linking.openURL(`${speaker.url}`);
           }}
         >
           <View
@@ -71,11 +71,6 @@ const Speaker = props => {
       </ScrollView>
     </ScrollView>
   );
-};
-
-Speaker.propTypes = {
-  speaker: PropTypes.object.isRequired,
-  navigation: PropTypes.object.isRequired
 };
 
 export default Speaker;

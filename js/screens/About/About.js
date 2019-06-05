@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 const About = ({ conductItems }) => {
   return (
-    <ScrollView>
+    <ScrollView style={styles.allContainer}>
       <View style={styles.logoContainer}>
         <Image
           style={styles.logo}

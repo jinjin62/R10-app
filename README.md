@@ -1,8 +1,12 @@
 # R10
 
-|                   Schedule                   |                   Sessions                   |
+|                 iOS Schedule                 |                 iOs Sessions                 |
 | :------------------------------------------: | :------------------------------------------: |
-| ![Schedule screen](./assets/scheduleR10.png) | ![Sessions screen](./assets/sessionsR10.png) |
+| ![Schedule screen](./snapshots/scheduleR10ios.png) | ![Sessions screen](./snapshots/sessionsR10ios.png) |
+
+|               Android Schedule               |               Android Sessions               |
+| :------------------------------------------: | :------------------------------------------: |
+| ![Schedule screen](./snapshots/scheduleR10android.png) | ![Sessions screen](./snapshots/sessionsR10android.png) |
 
 ## Description
 

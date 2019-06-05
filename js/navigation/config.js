@@ -26,7 +26,6 @@ const GradientHeader = props => (
 export const sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
   header: props => {
-    console.log("header", navigation);
     return <GradientHeader {...props} />;
   },
   headerStyle: {

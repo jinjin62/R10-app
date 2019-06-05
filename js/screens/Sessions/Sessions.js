@@ -14,7 +14,6 @@ import moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import PropTypes from "prop-types";
 
-// create a component
 const Session = ({
   navigation,
   session,

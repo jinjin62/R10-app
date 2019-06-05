@@ -49,7 +49,11 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     width: "90%",
     marginLeft: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
+    paddingBottom: 10
+  },
+  allContainer: {
+    padding: 10
   }
 });
 export default styles;

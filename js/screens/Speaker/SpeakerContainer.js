@@ -6,7 +6,6 @@ export default class SpeakerContainer extends Component {
   render() {
     const speaker = this.props.navigation.getParam("speaker");
     const id = this.props.navigation.getParam("id");
-    console.log("SPEAKER CONTAINER: ", speaker);
 
     return (
       <Speaker speaker={speaker} id={id} navigation={this.props.navigation} />
@@ -15,6 +14,5 @@ export default class SpeakerContainer extends Component {
 }
 
 Speaker.propTypes = {
-  sessions: PropTypes.array.isRequired,
   navigation: PropTypes.object.isRequired
 };

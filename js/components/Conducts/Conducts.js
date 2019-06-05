@@ -61,7 +61,7 @@ class ConductItem extends Component {
     } else {
       LayoutAnimation.configureNext(createAnimation);
     }
-    // LayoutAnimation.easeInEaseOut();
+
     this.setState({ isOpen: !this.state.isOpen });
   }
   render() {
