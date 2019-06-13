@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Image,
   Linking,
@@ -12,7 +12,6 @@ import {
 import styles from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
-import PropTypes from "prop-types";
 
 const Speaker = ({ navigation, speaker }) => {
   return (
